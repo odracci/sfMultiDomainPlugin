@@ -1,0 +1,13 @@
+sfMultiDomain:
+  columns:
+    id:                      { type: integer, notnull: true, primary: true, autoincrement: true }
+    name:                    { type: string(255), notnull: true }
+    host:                    { type: string(255), notnull: true }
+
+#sfGuardUser:
+#  columns:
+#    username:                { type: string(128), notnull: true, unique: false }
+#    domain_id:               { type: integer, notnull: true }
+#  relations:
+#    Domain:                  { onDelete: CASCADE, local: agency_id }
+    

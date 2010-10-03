@@ -1,0 +1,19 @@
+all:
+  domains_conf_dir:     <?php echo sfConfig::get('sf_app_config_dir') ?>/domains
+
+  domains_cache:
+    class: sfFileCache
+    param:
+      automatic_cleaning_factor: 0
+      cache_dir:                 '%SF_APP_CACHE_DIR%/domains'
+      lifetime:                  86400
+      prefix:                    '%SF_APP_DIR%/domains'
+
+test:
+  foo:
+    username: foo
+    password: foo
+  bar:
+    username: bar
+    password: bar
+
