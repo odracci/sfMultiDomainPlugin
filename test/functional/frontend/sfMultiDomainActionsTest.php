@@ -38,4 +38,4 @@ with('response')
 $browser = new myTestFunctional(new sfMultiDomainBrowser());
 $browser->setHost('error.domain');
 $browser->get('/')->
-isModuleAction('home', 'index', 500, false);
+isModuleAction('home', 'index', 404, false);

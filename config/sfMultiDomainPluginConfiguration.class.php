@@ -52,7 +52,7 @@ class sfMultiDomainPluginConfiguration extends sfPluginConfiguration {
 		else {
 			$domainObj = sfMultiDomainTable::getInstance()->findOneByHost($domain);
 			if (!$domainObj) {
-				throw new sfError404Exception('Domain not found: ' . $domain);
+				throw new sfException('Domain not found: ' . $domain);
 			}
 			$data = array('id' => $domainObj->getId(), 'name' => $domainObj->getName());
 			if (sfConfig::get('sf_cache')) {
@@ -64,7 +64,6 @@ class sfMultiDomainPluginConfiguration extends sfPluginConfiguration {
 	
 	private function initConfig($configCache, $site) {
 		$configFile = sfConfig::get('app_domains_conf_dir') .'/' . $site.'.yml';
-		var_dump($configFile);
 		$configCache->registerConfigHandler($configFile, 'sfDefineEnvironmentConfigHandler', array('prefix' => 'md_'));
 		
 		if ($file = $configCache->checkConfig($configFile, true)) {
