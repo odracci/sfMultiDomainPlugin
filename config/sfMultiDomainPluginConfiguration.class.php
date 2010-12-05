@@ -23,11 +23,16 @@ class sfMultiDomainPluginConfiguration extends sfPluginConfiguration {
 		$domain = $request->getHost();
 
 		if (strlen($domain)) {
-			$data = $this->getDomain($domain);
-			$context = $this->configuration->getActive();
-			$this->initConfig($context->getConfigCache(), $data['name']);
-			sfConfig::set('md_domain', $data['name']);
-			sfConfig::set('md_domain_id', $data['id']);
+			try {
+				$data = $this->getDomain($domain);
+				$context = $this->configuration->getActive();
+				$this->initConfig($context->getConfigCache(), $data['name']);
+				sfConfig::set('md_domain', $data['name']);
+				sfConfig::set('md_domain_id', $data['id']);
+			}
+			catch (Exception $e) {
+				
+			}
 		}
 
 		return $parameters;
