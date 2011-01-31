@@ -4,10 +4,10 @@ sfMultiDomain:
     name:                    { type: string(255), notnull: true }
     host:                    { type: string(255), notnull: true }
 
-#sfGuardUser:
-#  columns:
-#    username:                { type: string(128), notnull: true, unique: false }
-#    domain_id:               { type: integer, notnull: true }
-#  relations:
-#    Domain:                  { onDelete: CASCADE, local: agency_id }
+sfGuardUser:
+  columns:
+    username:                { type: string(128), notnull: true, unique: false }
+    domain_id:               { type: integer, notnull: true }
+  relations:
+    sfMultiDomain:           { onDelete: CASCADE, local: domain_id, foreignAlias: Domain }
     
